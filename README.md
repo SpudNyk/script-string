@@ -1,2 +1,5 @@
 # script-string
-Engine for building tagged script templates in node js
+
+An engine for building tagged script templates in node js.
+
+## Example
