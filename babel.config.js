@@ -2,7 +2,7 @@ module.exports = api => {
     const isTest = api.env('test');
 
     return {
-        presets: ['@babel/typescript'],
+        presets: ['@babel/preset-typescript'],
         ignore: isTest
             ? undefined
             : [
