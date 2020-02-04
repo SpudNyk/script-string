@@ -6,11 +6,24 @@ import { Keyed } from './config';
 
 import { types } from './types';
 
+/**
+ * Bypass the type translation and return the raw value to the
+ * Builder stream.
+ * @param value Value to pass
+ */
 export const raw = (value: ReprReturn) => ({ [REPR]: value });
 
 type IncludeOpts = Parameters<typeof fs.createReadStream>[1];
-
-export const include = (filepath: fs.PathLike, options: IncludeOpts) => {
+/**
+ * Include a file's content into the stream.
+ * This is a wrapper around
+ * {@link https://nodejs.org/dist/latest/docs/api/fs.html#fs_fs_createreadstream_path_options fs.createReadStream}
+ *  refer to the node documentation for argument descriptions.
+ *
+ * @param filepath
+ * @param options
+ */
+export const include = (filepath: fs.PathLike, options?: IncludeOpts) => {
     const opts: Keyed | undefined =
         typeof options === 'string'
             ? {

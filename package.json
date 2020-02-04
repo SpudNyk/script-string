@@ -1,6 +1,6 @@
 {
-    "name": "script-string",
-    "version": "0.1.0",
+    "name": "@script-string/core",
+    "version": "0.3.0",
     "description": "Engine for creating script tagged template strings",
     "keywords": [
         "script",

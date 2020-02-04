@@ -7,6 +7,8 @@ import * as iterable from './iterable';
 import { Language, LanguageDefinition } from './language';
 import Runner, { RunnerConfig, ExecOptions } from './runner';
 
+type StringIterable = iterable.AnyIterable<string>;
+
 export interface BuilderOptions {
     name: string;
     language: Language | LanguageDefinition;
@@ -115,7 +117,7 @@ export class Builder {
         });
     }
 
-    async *chunks(params: Keyed, maxSize = 0) {
+    async *chunks(params: Keyed, maxSize = 0): StringIterable {
         for await (let chunk of this._content(params)) {
             if (maxSize === 0 || chunk.length < maxSize) {
                 yield chunk;
@@ -128,7 +130,7 @@ export class Builder {
         }
     }
 
-    async content(params?: Keyed) {
+    async content(params?: Keyed): Promise<string> {
         const content = [];
         for await (const chunk of this._content(params)) {
             content.push(chunk);
@@ -140,7 +142,7 @@ export class Builder {
         return this._language.declare(this._params.entries(params));
     }
 
-    _content(params?: Keyed) {
+    _content(params?: Keyed): StringIterable {
         return iterable.chain(
             this._head(),
             this._declare(params),
@@ -149,11 +151,11 @@ export class Builder {
         );
     }
 
-    _head() {
+    _head(): StringIterable {
         return iterable.empty;
     }
 
-    async *_body() {
+    async *_body(): StringIterable {
         const lang = this._language;
         const values = this._values;
         const strings = this._strings;
@@ -165,7 +167,7 @@ export class Builder {
         }
     }
 
-    _foot() {
+    _foot(): StringIterable {
         return iterable.empty;
     }
 

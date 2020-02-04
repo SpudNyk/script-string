@@ -18,6 +18,8 @@ import {
     LanguageInterface
 } from './language-types';
 
+export { LanguageDefinition };
+
 const isDate = util.types.isDate;
 
 export const REPR: symbol = Symbol('repr');
@@ -247,7 +249,9 @@ export class Language {
     }
 
     invalid(condition: any, what: string, type: string): asserts condition {
-        throw new Error(`${what} is an invalid ${type} for ${this.name}`);
+        if (!condition) {
+            throw new Error(`${what} is an invalid ${type} for ${this.name}`);
+        }
     }
 
     unsupported(condition: any, what: string): asserts condition {
