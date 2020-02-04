@@ -1,7 +1,7 @@
 {
     "name": "@script-string/core",
     "version": "0.3.0",
-    "description": "Engine for creating script tagged template strings",
+    "description": "Library for embedding and running script languages using tagged template strings",
     "keywords": [
         "script",
         "template strings",
