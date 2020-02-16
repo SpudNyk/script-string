@@ -1,5 +1,5 @@
 import util from 'util';
-import merge from 'merge-anything';
+import { merge } from 'merge-anything';
 import { isPlainObject } from 'is-what';
 import { iterator, AnyIterable, AnyIterator } from './iterable';
 import {
@@ -82,7 +82,7 @@ const reprIterable = async function*(
 const reprString = (value: string) => `"${value.replace(/[\\"]/g, '\\$&')}"`;
 
 const reprBoolean = (value: boolean, lang: LanguageInterface) =>
-    value ? lang.consts.true : lang.consts.false;
+    value ? lang.consts.true || 'true' : lang.consts.false || 'false';
 
 const reprDate = (date: Date, lang: LanguageInterface, stack: StackInterface) =>
     lang.reprs.string!(date.toISOString(), lang, stack);
@@ -97,8 +97,16 @@ const formatName = (value: string, lang: LanguageInterface) => {
 };
 
 const validShrink = new Set(Object.values(Shrink));
+const normalizeShrink = (value: boolean | Shrink): Shrink => {
+    if (value === true) {
+        return Shrink.ALL;
+    } else if (value === false) {
+        return Shrink.NONE;
+    }
+    return value;
+};
 
-export const defaults = {
+export const defaults: Required<LanguageDefinition> = {
     shrinkBigInt: Shrink.SMALL,
     reprs: {
         string: reprString,
@@ -209,12 +217,13 @@ export class Language {
             }
             this.shrinkBigInt = shrink;
         } else {
-            this.shrinkBigInt = defaults.shrinkBigInt;
+            this.shrinkBigInt = normalizeShrink(defaults.shrinkBigInt);
         }
 
-        this.format = merge(defaults.format, config.format);
-        this.reprs = merge(defaults.reprs, config.reprs);
-        this.consts = merge(defaults.consts, config.consts);
+        // @ts-ignore
+        this.format = merge(defaults.format, config.format || {});
+        this.reprs = merge(defaults.reprs, config.reprs || {});
+        this.consts = merge(defaults.consts, config.consts || {});
     }
 
     type(val: any): ReprType {

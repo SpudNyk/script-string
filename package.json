@@ -15,17 +15,15 @@
         "dist:clean": "dist-package clean",
         "dist:package": "dist-package package",
         "build:types": "tsc --emitDeclarationOnly --outDir dist/lib",
-        "build:babel:cjs": "cross-env BABEL_ENV=cjs babel src -d dist/lib --extensions \".ts\"",
-        "build:babel": "yarn dist:clean && yarn build:babel:cjs && yarn build:types && yarn dist:package",
-        "build:tsc:cjs": "tsc --declaration true --outDir dist/lib",
-        "build": "yarn dist:clean && yarn build:tsc:cjs && yarn dist:package",
+        "build:cjs": "cross-env BABEL_ENV=cjs babel src -d dist/lib --extensions \".ts\"",
+        "build": "npm-run-all dist:clean build:cjs build:types dist:package",
         "docs": "typedoc --out docs/api --readme none --name script-string --gitRevision master"
     },
     "dependencies": {
-        "@types/node": "^13.7.0",
+        "@types/node": "^13.7.1",
         "@types/tmp": "^0.1.0",
-        "is-what": "^3.5.1",
-        "merge-anything": "^2.4.4",
+        "is-what": "^3.6.0",
+        "merge-anything": "^3.0.1",
         "tmp-promise": "^2.0.2"
     },
     "devDependencies": {
@@ -36,10 +34,11 @@
         "@babel/preset-env": "^7.8.3",
         "@babel/preset-typescript": "^7.8.3",
         "cross-env": "^7.0.0",
-        "dist-package": "^0.2.1",
+        "dist-package": "^0.2.2",
         "eslint": "^6.8.0",
         "fs-jetpack": "^2.2.3",
-        "typedoc": "^0.16.8",
+        "npm-run-all": "^4.1.5",
+        "typedoc": "^0.16.10",
         "typescript": "^3.7.5",
         "yargs": "^15.1.0"
     },
