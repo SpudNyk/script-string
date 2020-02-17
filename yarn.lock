@@ -1322,9 +1322,9 @@ doctrine@^3.0.0:
     esutils "^2.0.2"
 
 electron-to-chromium@^1.3.349:
-  version "1.3.352"
-  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.352.tgz#f0fc1e561104dbfba55cb3d45cad3626dc75d7e9"
-  integrity sha512-dL/RyoueFG3UMhG0q3weAQvr+Tbqx/axAnOXYIIOsoYnV+2i+nRvX2S6msEo2+JARbBP8MFkkSYQ8AoY9Bh4Og==
+  version "1.3.353"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.353.tgz#c6f13f27d5212643979867a400c1a5e8a4ef042a"
+  integrity sha512-CkG24biyy9qQTQs8U2vGQaiyWSFDxAXP/UGHBveXZ1TGoWOAw+eYZXryrX0UeIMKnQjcaHx33hzYuydv98kqGQ==
 
 emoji-regex@^7.0.1:
   version "7.0.3"
@@ -2235,13 +2235,13 @@ memorystream@^0.3.1:
   resolved "https://registry.yarnpkg.com/memorystream/-/memorystream-0.3.1.tgz#86d7090b30ce455d63fbae12dda51a47ddcaf9b2"
   integrity sha1-htcJCzDORV1j+64S3aUaR93K+bI=
 
-merge-anything@^3.0.1:
-  version "3.0.1"
-  resolved "https://registry.yarnpkg.com/merge-anything/-/merge-anything-3.0.1.tgz#5272370fc2f64d56f9f1ee5946be3ebbfd595a60"
-  integrity sha512-SRsx3q48pTvSTAcMUOTSlbxMH48E9LCucMppb6vwxkbpqlmZKXzUdYlpxnhrAwGkm/UbMbjnPS2nplRFwOHEjg==
+merge-anything@^3.0.1, merge-anything@^3.0.2:
+  version "3.0.2"
+  resolved "https://registry.yarnpkg.com/merge-anything/-/merge-anything-3.0.2.tgz#e40e51bc9913af435b6d10e2ace86befefa6448c"
+  integrity sha512-lfgXVGNkOe+fmEY8ijY5LjcDF0o7/1Udd+SBocsGSUjsn8aKE4kV7BAxB1vvaqs/G4RFaytvKYc1Z3Q/aquMeg==
   dependencies:
     is-what "^3.6.0"
-    ts-toolbelt "^6.2.0"
+    ts-toolbelt "^6.3.0"
 
 micromatch@^3.1.10, micromatch@^3.1.4:
   version "3.1.10"
@@ -3308,7 +3308,7 @@ to-regex@^3.0.1, to-regex@^3.0.2:
     regex-not "^1.0.2"
     safe-regex "^1.1.0"
 
-ts-toolbelt@^6.2.0:
+ts-toolbelt@^6.3.0:
   version "6.3.0"
   resolved "https://registry.yarnpkg.com/ts-toolbelt/-/ts-toolbelt-6.3.0.tgz#1c7d20841e3a6272117273a1574034a9a80c316c"
   integrity sha512-tm0LbFonuwKMLll9duP+/DQ9nHA9xU+qPo9OrPZWkRZ9iBDp2IPEcPUUSpHGVFckpElIgf9jx1UOW3wzUDLP9g==

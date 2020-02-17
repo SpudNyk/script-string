@@ -23,7 +23,7 @@
         "@types/node": "^13.7.1",
         "@types/tmp": "^0.1.0",
         "is-what": "^3.6.0",
-        "merge-anything": "^3.0.1",
+        "merge-anything": "^3.0.2",
         "tmp-promise": "^2.0.2"
     },
     "devDependencies": {
